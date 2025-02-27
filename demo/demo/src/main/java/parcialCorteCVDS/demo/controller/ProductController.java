@@ -20,7 +20,7 @@ public class ProductController {
     }
 
     @PutMapping("/modify")
-    public void updateProduct(@RequestParam String name, @RequestParam int quantity) {
-        service.update(name, quantity);
+    public void updateProduct(@RequestBody Product product) {
+        service.update(product.getName(), product.getQuantity());
     }
 }

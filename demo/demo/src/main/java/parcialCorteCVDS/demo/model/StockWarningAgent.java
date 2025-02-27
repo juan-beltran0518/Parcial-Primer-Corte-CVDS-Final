@@ -6,17 +6,17 @@ import java.util.List;
 
 @Component
 public class StockWarningAgent implements ObserverAgent {
-    private final List<String> notifications = new ArrayList<>();
-
+    private static final int LOW_STOCK_THRESHOLD = 5;
     @Override
     public void notify(Product product) {
-        if (product.getQuantity() < 5) {
+        if (product.getQuantity() < LOW_STOCK_THRESHOLD) {
             String notification = "ALERT!!! Product: " + product.getName() +
                     " is very low in stock, only " + product.getQuantity() + " units left.";
             System.out.println(notification);
             notifications.add(notification);
         }
     }
+    private final List<String> notifications = new ArrayList<>();
 
     public List<String> getNotifications() {
         return notifications;

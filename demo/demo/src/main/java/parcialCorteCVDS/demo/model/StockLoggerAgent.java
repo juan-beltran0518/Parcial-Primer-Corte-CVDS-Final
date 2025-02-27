@@ -1,9 +1,10 @@
 package parcialCorteCVDS.demo.model;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Scope
 public class StockLoggerAgent implements ObserverAgent {
     private final List<String> notifications = new ArrayList<>();
 
